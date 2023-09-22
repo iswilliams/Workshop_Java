@@ -18,4 +18,4 @@ jobs:
           TAGS: ${{ inputs.tags }}
   Java-Pipeline:
     needs: Checkout
-    uses: iswilliams/Workshop_B/.github/workflows/java_template.yml@main
+    uses: iswilliams/Workshop_Pipelines/.github/workflows/java_template.yml@main
