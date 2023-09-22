@@ -1,0 +1,21 @@
+name: Reusable Pattern
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  Checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Unit Tests?: $TAGS"
+        env:
+          LEVEL: ${{ inputs.logLevel }}
+          TAGS: ${{ inputs.tags }}
+  Java-Pipeline:
+    needs: Checkout
+    uses: iswilliams/Workshop_B/.github/workflows/java_template.yml@main
